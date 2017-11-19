@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BOT_NAME	../lenovo_outlet/lenovo_outlet/settings.py	/^BOT_NAME = 'lenovo_outlet'$/;"	kind:variable	line:12
+CrawlSpider	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^from scrapy.contrib.spiders import CrawlSpider, Rule$/;"	kind:namespace	line:3
+LenovoOutletItem	../lenovo_outlet/lenovo_outlet/items.py	/^class LenovoOutletItem(scrapy.Item):$/;"	kind:class	line:11
+LenovoOutletPipeline	../lenovo_outlet/lenovo_outlet/pipelines.py	/^class LenovoOutletPipeline(object):$/;"	kind:class	line:9
+LenovoOutletSpiderMiddleware	../lenovo_outlet/lenovo_outlet/middlewares.py	/^class LenovoOutletSpiderMiddleware(object):$/;"	kind:class	line:11
+LenovoSpider	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^class LenovoSpider(scrapy.Spider):$/;"	kind:class	line:5
+NEWSPIDER_MODULE	../lenovo_outlet/lenovo_outlet/settings.py	/^NEWSPIDER_MODULE = 'lenovo_outlet.spiders'$/;"	kind:variable	line:15
+ROBOTSTXT_OBEY	../lenovo_outlet/lenovo_outlet/settings.py	/^ROBOTSTXT_OBEY = True$/;"	kind:variable	line:22
+Rule	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^from scrapy.contrib.spiders import CrawlSpider, Rule$/;"	kind:namespace	line:3
+SPIDER_MODULES	../lenovo_outlet/lenovo_outlet/settings.py	/^SPIDER_MODULES = ['lenovo_outlet.spiders']$/;"	kind:variable	line:14
+SgmlLinkExtractor	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor$/;"	kind:namespace	line:2
+__init__.py	../lenovo_outlet/lenovo_outlet/__init__.py	1;"	kind:file	line:1
+__init__.py	../lenovo_outlet/lenovo_outlet/spiders/__init__.py	1;"	kind:file	line:1
+from_crawler	../lenovo_outlet/lenovo_outlet/middlewares.py	/^    def from_crawler(cls, crawler):$/;"	kind:member	line:17
+items.py	../lenovo_outlet/lenovo_outlet/items.py	1;"	kind:file	line:1
+lenovo_spider.py	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	1;"	kind:file	line:1
+middlewares.py	../lenovo_outlet/lenovo_outlet/middlewares.py	1;"	kind:file	line:1
+name	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^    name = "lenovo"$/;"	kind:variable	line:6
+parse	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^    def parse(self, response):$/;"	kind:member	line:18
+pipelines.py	../lenovo_outlet/lenovo_outlet/pipelines.py	1;"	kind:file	line:1
+process_item	../lenovo_outlet/lenovo_outlet/pipelines.py	/^    def process_item(self, item, spider):$/;"	kind:member	line:10
+process_spider_exception	../lenovo_outlet/lenovo_outlet/middlewares.py	/^    def process_spider_exception(self, response, exception, spider):$/;"	kind:member	line:38
+process_spider_input	../lenovo_outlet/lenovo_outlet/middlewares.py	/^    def process_spider_input(self, response, spider):$/;"	kind:member	line:23
+process_spider_output	../lenovo_outlet/lenovo_outlet/middlewares.py	/^    def process_spider_output(self, response, result, spider):$/;"	kind:member	line:30
+process_start_requests	../lenovo_outlet/lenovo_outlet/middlewares.py	/^    def process_start_requests(self, start_requests, spider):$/;"	kind:member	line:46
+rules	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^    rules = ($/;"	kind:variable	line:13
+scrapy	../lenovo_outlet/lenovo_outlet/items.py	/^import scrapy$/;"	kind:namespace	line:8
+scrapy	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^import scrapy$/;"	kind:namespace	line:1
+settings.py	../lenovo_outlet/lenovo_outlet/settings.py	1;"	kind:file	line:1
+signals	../lenovo_outlet/lenovo_outlet/middlewares.py	/^from scrapy import signals$/;"	kind:namespace	line:8
+spider_opened	../lenovo_outlet/lenovo_outlet/middlewares.py	/^    def spider_opened(self, spider):$/;"	kind:member	line:55
+start_requests	../lenovo_outlet/lenovo_outlet/spiders/lenovo_spider.py	/^    def start_requests(self):$/;"	kind:member	line:8

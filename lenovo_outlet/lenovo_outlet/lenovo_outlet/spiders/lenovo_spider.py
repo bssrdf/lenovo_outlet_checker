@@ -5,9 +5,8 @@ import time
 class LenovoSpider(Spider):
     name = "lenovo"
     allowed_domains = ["www3.lenovo.com", "www.lenovo.com"]
-    start_urls = ['file:///home/al/Downloads/test.html']
-    # start_urls = ["https://www3.lenovo.com/us/en/outletus/laptops/c/\
-    # LAPTOPS?q=%3Aprice-asc%3AfacetSys-Brand%3AThink&uq=&text=#"]
+    start_urls = ["https://www3.lenovo.com/us/en/outletus/laptops/c/\
+    LAPTOPS?q=%3Aprice-asc%3AfacetSys-Brand%3AThink&uq=&text=#"]
 
     def parse(self, response):
         pagesource = Selector(response)

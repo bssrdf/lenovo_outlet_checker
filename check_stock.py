@@ -26,13 +26,13 @@ def send_email(msg_content, from_address, to_address):
 
     msg_full = message.as_string()
 
-    recipients = 'aldonmez@gmail.com'
+    recipients = ''
 
-    server = smtplib.SMTP('smtp-relay.gmail.com:587')
+    server = smtplib.SMTP('')
     server.starttls()
-    server.login('adonmez@homefinder.com', 'qweasdzxciukjmn12!!')
+    server.login('', '')
     try:
-        server.sendmail('adonmez@homefinder.com', recipients,
+        server.sendmail('', recipients,
                         msg_full)
         server.quit()
     except Exception as e:
@@ -41,9 +41,9 @@ def send_email(msg_content, from_address, to_address):
 if __name__ == "__main__":
     list_of_in_stock_laptops = []
     os.chdir('lenovo_outlet/lenovo_outlet')
-    # output_json_to_directory('../../test.json')
-    # sleep(5)
-    with open('/home/al/code/projects/lenovo_outlet_stock/test.json') as f:
+    output_json_to_directory('../../test.json')
+    sleep(5)
+    with open('/../../test.json') as f:
         try:
             json_objects = json.load(f)
         except Exception as e:
@@ -54,5 +54,5 @@ if __name__ == "__main__":
                 if check_laptop_in_stock(laptop):
                     list_of_in_stock_laptops.append(laptop['name'])
     if list_of_in_stock_laptops > 0:
-        send_email(list_of_in_stock_laptops, 'adonmez@homefinder.com', 'aldonmez@gmail.com')
+        send_email(list_of_in_stock_laptops, '', '')
         print(type(list_of_in_stock_laptops))

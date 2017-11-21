@@ -16,7 +16,8 @@ def check_laptop_in_stock(json_object):
     if 'in stock'.lower() in json_object['stock'].lower():
         return True
 
-def send_email(msg_content, from_address, to_address):
+def send_email(msg_content, from_address, to_address, 
+    smtp_addr, smtp_user, smtp_password):
     formatted_message = '\n'.join(msg_content)
     message = MIMEText(formatted_message, 'html')
 
@@ -26,33 +27,35 @@ def send_email(msg_content, from_address, to_address):
 
     msg_full = message.as_string()
 
-    recipients = ''
-
-    server = smtplib.SMTP('')
+    server = smtplib.SMTP(smtp_addr)
     server.starttls()
-    server.login('', '')
+    server.login(smtp_user, smtp_password)
     try:
-        server.sendmail('', recipients,
+    # to_address can be multiple addresses separated by a comma. ex.
+    # 'name@email.com, name2@email.com'
+        server.sendmail(smtp_user, to_address,
                         msg_full)
         server.quit()
     except Exception as e:
-        print "ERROR: " + str(e)
+        print 'ERROR: ' + str(e)
 
 if __name__ == "__main__":
+    laptops_to_search = ['Thinkpad x1', 'Thinkpad 460', 'Thinkpad 470']
     list_of_in_stock_laptops = []
     os.chdir('lenovo_outlet/lenovo_outlet')
-    output_json_to_directory('../../test.json')
+    output_json_to_directory('../../laptops_scraped.json')
     sleep(5)
-    with open('/../../test.json') as f:
+    with open('../../laptops_scraped.json') as f:
         try:
             json_objects = json.load(f)
         except Exception as e:
-            print "Error" + e
+            print "ERROR: " + str(e)
             raise
         for laptop in json_objects:
-            if check_laptop_matches_request('ThinkPad', laptop):
-                if check_laptop_in_stock(laptop):
-                    list_of_in_stock_laptops.append(laptop['name'])
+            for laptop_type in laptops_to_search:
+                if laptop_type.lower() in laptop['name'].lower():
+                    if 'in stock' in laptop['stock'].lower():
+                        list_of_in_stock_laptops.append(laptop['name'])
     if list_of_in_stock_laptops > 0:
-        send_email(list_of_in_stock_laptops, '', '')
-        print(type(list_of_in_stock_laptops))
+        send_email(list_of_in_stock_laptops, )
+        print(list_of_in_stock_laptops)

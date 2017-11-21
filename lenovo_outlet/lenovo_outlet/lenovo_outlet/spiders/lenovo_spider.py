@@ -1,6 +1,7 @@
 from scrapy.spiders import CrawlSpider, Spider
-from scrapy import Selector
+from scrapy import Selector, Request
 import time
+import scrapy
 
 class LenovoSpider(Spider):
     name = "lenovo"
@@ -20,3 +21,9 @@ class LenovoSpider(Spider):
                 'stock': laptop.xpath('.//span[@class=\
                 "rci-msg"]/text()').extract()[0].strip()
             }
+
+        next_page = response.xpath("//div[@class='paginationTop']/\
+        a[contains(text(),'Next Page')]/@href").extract_first()
+        if next_page is not None:
+            next_page = response.urljoin(next_page)
+            yield scrapy.Request(next_page, callback=self.parse)

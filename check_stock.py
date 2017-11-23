@@ -39,8 +39,9 @@ def send_email(msg_content, from_address, to_address,
     except Exception as e:
         print 'ERROR: ' + str(e)
 
+laptops_to_search = ['Thinkpad x1', 'Thinkpad 460', 'Thinkpad 470']
+
 if __name__ == "__main__":
-    laptops_to_search = ['Thinkpad x1', 'Thinkpad 460', 'Thinkpad 470']
     list_of_in_stock_laptops = []
     os.chdir('lenovo_outlet/lenovo_outlet')
     output_json_to_directory('../../laptops_scraped.json')

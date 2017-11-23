@@ -17,17 +17,17 @@ def check_laptop_in_stock(json_object):
         return True
 
 def send_email(msg_content, from_address, to_address, 
-    smtp_addr, smtp_user, smtp_password):
-    formatted_message = '\n'.join(msg_content)
-    message = MIMEText(formatted_message, 'html')
+    smtp_addr, port, smtp_user, smtp_password):
 
-    message['From'] = from_address
+    formatted_message = '\n'.join(msg_content)
+    message = MIMEText(formatted_message, 'plain')
+
     message['To'] = to_address
     message['Subject'] = 'Lenovo laptops in stock'
 
     msg_full = message.as_string()
 
-    server = smtplib.SMTP(smtp_addr)
+    server = smtplib.SMTP(smtp_addr, port)
     server.starttls()
     server.login(smtp_user, smtp_password)
     try:
@@ -39,9 +39,12 @@ def send_email(msg_content, from_address, to_address,
     except Exception as e:
         print 'ERROR: ' + str(e)
 
-laptops_to_search = ['Thinkpad x1', 'Thinkpad 460', 'Thinkpad 470']
 
 if __name__ == "__main__":
+    
+    laptops_to_search = ['Thinkpad x1', 'Thinkpad 460', 'Thinkpad 470']
+
+
     list_of_in_stock_laptops = []
     os.chdir('lenovo_outlet/lenovo_outlet')
     output_json_to_directory('../../laptops_scraped.json')
@@ -57,6 +60,6 @@ if __name__ == "__main__":
                 if laptop_type.lower() in laptop['name'].lower():
                     if 'in stock' in laptop['stock'].lower():
                         list_of_in_stock_laptops.append(laptop['name'])
+                        list_of_in_stock_laptops.append(laptop['price'])
     if list_of_in_stock_laptops > 0:
-        send_email(list_of_in_stock_laptops, )
-        print(list_of_in_stock_laptops)
+        send_email = send_email(list_of_in_stock_laptops, )

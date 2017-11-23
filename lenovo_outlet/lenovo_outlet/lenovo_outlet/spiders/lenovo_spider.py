@@ -11,13 +11,14 @@ class LenovoSpider(Spider):
 
     def parse(self, response):
         pagesource = Selector(response)
-        entries = pagesource.xpath('//div[@id="results-area"]')
-        for laptop in entries.xpath('.//div[@class=\
+        for laptop in pagesource.xpath('//div[@class=\
         "facetedResults-item only-allow-small-pricingSummary"]'):
             yield {
                 'date': time.strftime("%x"),
                 'name': laptop.xpath('.//h3[@class=\
                 "facetedResults-title"]/a/text()').extract()[0].strip(),
+                'price': laptop.xpath('.//dd[@class=\
+                "pricingSummary-details-final-price"]/text()')[0].extract().strip(),
                 'stock': laptop.xpath('.//span[@class=\
                 "rci-msg"]/text()').extract()[0].strip()
             }

@@ -37,7 +37,7 @@ def send_email(msg_content, from_address, to_address,
                         msg_full)
         server.quit()
     except Exception as e:
-        print 'ERROR: ' + str(e)
+        print('ERROR: ' + str(e))
 
 
 if __name__ == "__main__":
@@ -53,7 +53,7 @@ if __name__ == "__main__":
         try:
             json_objects = json.load(f)
         except Exception as e:
-            print "ERROR: " + str(e)
+            print("ERROR: " + str(e))
             raise
         for laptop in json_objects:
             for laptop_type in laptops_to_search:
@@ -61,5 +61,7 @@ if __name__ == "__main__":
                     if 'in stock' in laptop['stock'].lower():
                         list_of_in_stock_laptops.append(laptop['name'])
                         list_of_in_stock_laptops.append(laptop['price'])
-    if list_of_in_stock_laptops > 0:
-        send_email = send_email(list_of_in_stock_laptops, )
+    for lap in list_of_in_stock_laptops:
+        print(lap)                    
+    #if list_of_in_stock_laptops > 0:
+    #    send_email = send_email(list_of_in_stock_laptops, )
